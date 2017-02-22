@@ -15,21 +15,14 @@
   </properties>
 
    <dependencies>
-  	<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.46.0</version>
-		</dependency>
+  	
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
 			<version>2.53.1</version>
 		</dependency>
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>1.4.01</version>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -37,47 +30,7 @@
 			<version>6.9.9</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-   		 <groupId>org.apache.poi</groupId>
-    		<artifactId>poi-ooxml</artifactId>
-    		<version>3.9</version>
-		</dependency>
-		<dependency>
-   			 <groupId>org.apache.poi</groupId>
-   			 <artifactId>poi</artifactId>
-    		<version>3.10-FINAL</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-    		<groupId>org.uncommons</groupId>
-    		<artifactId>reportng</artifactId>
-    		<version>1.1.4</version>
-		</dependency>
-		<dependency>
-    <groupId>com.google.inject</groupId>
-    <artifactId>guice</artifactId>
-    <version>4.1.0</version>
-    <classifier>no_aop</classifier>
-    <scope>test</scope>
- </dependency>
+		
   </dependencies>
   
   <build>
@@ -104,72 +57,12 @@
 
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${project.basedir}\TestngSuites\testng.xml</suiteXmlFile>
+						<suiteXmlFile>${project.basedir}\testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<forkMode>never</forkMode>
-					 <systemPropertyVariables>
-                            <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
-                        </systemPropertyVariables>
-					<properties>
-						<property>
-							<name>org.uncommons.reportng.escape-output</name>
-							<value>false</value>
-						</property>
-						<property>
-							<name>usedefaultlisteners</name>
-							<value>false</value>
-						</property>
-						<property>
-							<name>listener</name>
-							<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
-						</property>
-					</properties>
-				</configuration>
+								</configuration>
 
 			</plugin>
     </plugins>
   </build>
   
-  <reporting>
-		<plugins> <!-- TestNG-xslt related configuration. -->
-			<plugin>
-				<groupId>org.reportyng</groupId>
-				<artifactId>reporty-ng</artifactId>
-				<version>1.2</version>
-				<configuration> <!-- Output directory for the testng xslt report -->
-					<outputdir>/target/testng-xslt-report</outputdir>
-					<surefireReportDirectory>/target/surefire-reports/testng-junit-results</surefireReportDirectory>
-					<sorttestcaselinks>true</sorttestcaselinks>
-					<testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
-					<showruntimetotals>true</showruntimetotals>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>reporty-ng</id>
-			<url>https://github.com/cosminaru/reporty-ng/raw/master/dist/maven</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-
-
-	<repositories>
-		<repository>
-			<id>repository.jboss.org-public</id>
-			<name>JBoss repository</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public</url>
-		</repository>
-
-		<repository>
-			<id>localrepository</id>
-			<url>file://${basedir}/repo</url>
-		</repository>
-		<repository>
-			<id>java-net</id>
-			<url>http://download.java.net/maven/2</url>
-		</repository>
-
-	</repositories>
 </project>
