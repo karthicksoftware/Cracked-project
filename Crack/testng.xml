@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="Test.Crack.AppTest"/>
+      <class name="Test.Crack.PchScenarios"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
